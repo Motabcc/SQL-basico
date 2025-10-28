@@ -313,20 +313,3 @@ INSERT INTO Transacao (id_produtos, id_catalogoServicos, tipo_E_S, tipo, valor, 
 (19, 19, 'E', 'Serviço', 180.00, '2025-10-03 10:30:00', 'Cartão'),
 (20, 20, 'E', 'Serviço', 120.00, '2025-10-03 11:30:00', 'Pix');
 
---  Listar o Nome do Animal e o Nome do Tutor que tiveram um Atendimento registrado por um Veterinário Específico (da sua escolha).
-SELECT
-    A.nome AS NomeAnimal,
-    T.nome AS NomeTutor,
-    F.nome AS NomeFuncionario
-FROM
-    Animal AS A
-JOIN
-    Tutor AS T ON A.id_tutor = T.id_tutor
-JOIN
-    Atendimento AS Atend ON A.id_animal = Atend.id_animal
-JOIN
-    Atendimento_Funcionario AS AF ON Atend.id_atendimento = AF.id_atendimento
-JOIN
-    Funcionario AS F ON AF.id_funcionario = F.id_funcionario
-WHERE
-    F.nome = 'Carlos Mendes';
